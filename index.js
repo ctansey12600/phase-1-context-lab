@@ -1,23 +1,52 @@
-/* Your Code Here */
-
-/*
- We're giving you this function. Take a look at it, you might see some usage
- that's new and different. That's because we're avoiding a well-known, but
- sneaky bug that we'll cover in the next few lessons!
-
- As a result, the lessons for this function will pass *and* it will be available
- for you to use if you need it!
- */
-
-const allWagesFor = function () {
-    const eligibleDates = this.timeInEvents.map(function (e) {
-        return e.date
-    })
-
-    const payable = eligibleDates.reduce(function (memo, d) {
-        return memo + wagesEarnedOnDate.call(this, d)
-    }.bind(this), 0) // <== Hm, why did we need to add bind() there? We'll discuss soon!
-
-    return payable
+const createEmployeeRecord = function (arrayRecord) {
+    const employeeRecord = {
+        firstName: `${arrayRecord[0]}`,
+        familyName: `${arrayRecord[1]}`,
+        title: `${arrayRecord[2]}`,
+        payPerHour: arrayRecord[3],
+        timeInEvents: [],
+        timeOutEvents: []
+    }
+    return employeeRecord
 }
+const createEmployeeRecords = function (employeeInfo) {
+    const arrayRecord = []
+    const employeeRecords = employeeInfo.map(function (e) {
+        arrayRecord.push(createEmployeeRecord(e))
+    })
+    console.log(arrayRecord)
+    return arrayRecord
+}
+
+const createTimeInEvent = function (inDate) {
+   
+   
+    // const splitDate = inDate.split(" ")
+    // const date = splitDate[0]
+    // const time = splitDate[1]
+    // const timeIn = this.timeInEvents = {
+    //     type: "TimeIn",
+    //     hour: parseInt(time),
+    //     date: `${date}`
+    // }
+    // console.log(timeIn)
+}
+
+
+// const allWagesFor = function () {
+//     //this is the object that is passed into the function which thenl
+//     //maps we take each single timeInEvent and get the date from it through e.date
+//     const eligibleDates = this.timeInEvents.map(function (e) {
+//         return e.date
+//     })
+//     //We take the date and we reduce the total for each event
+//     //
+//     const payable = eligibleDates.reduce(function (memo, d) {
+//         console.log(memo)
+//         console.log(d)
+//         return memo + wagesEarnedOnDate.call(this, d)
+//     }.bind(this), 0) // <== Hm, why did we need to add bind() there? We'll discuss soon!
+
+//     return payable
+// }
 
